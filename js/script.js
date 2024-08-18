@@ -11,12 +11,12 @@ fetch('https://v6.exchangerate-api.com/v6/11cdf61e3f036d169e5ca967/latest/USD')
 .then(data => {
 
     const obj = {
-        AMD: data.conversion_rates.AMD,  
-        USD: data.conversion_rates.USD,  
-        EUR: data.conversion_rates.EUR,
-        RUB: data.conversion_rates.RUB,
-        GEL: data.conversion_rates.GEL,
-        GBP: data.conversion_rates.GBP
+        AMD: data.conversion_rates.AMD.toFixed(2),  
+        USD: data.conversion_rates.USD.toFixed(2),  
+        EUR: data.conversion_rates.EUR.toFixed(2),
+        RUB: data.conversion_rates.RUB.toFixed(2),
+        GEL: data.conversion_rates.GEL.toFixed(2),
+        GBP: data.conversion_rates.GBP.toFixed(2)
     }
 
     let inputCurrency = obj.AMD
@@ -57,7 +57,7 @@ fetch('https://v6.exchangerate-api.com/v6/11cdf61e3f036d169e5ca967/latest/USD')
 function calculate(arg1, arg2, arg3, arg4){
     let one = arg2 / arg1
     let two = one * arg3
-    return arg4.textContent = two
+    return arg4.textContent = two.toFixed(2)
 }
 
 icon.forEach((elem, index)=>{
