@@ -1,0 +1,137 @@
+nav {
+  min-height: 100dvh;
+  height: 100%;
+  width: 185px;
+  padding: 1rem;
+  position: fixed;
+  border-right: 1px solid #2e303a;
+  transition: width .3s ease;
+  overflow: hidden;
+  &, ul {
+    display: flex;
+    flex-direction: column;
+  }
+  align-items: start;
+  ul {
+    gap: 1.5rem;
+  }
+  li {
+    list-style: none;
+  }
+  li a {
+    width: 100%;
+    color: #9ca3af;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: 8px 28px 8px 8px;
+    border-radius: 5px;
+    transition: padding .3s ease, gap .3s ease;
+    svg {
+      font-size: 24px;
+    }
+    span {
+      font-size: 18px;
+      opacity: 1;
+      transform: translateX(0);
+      transition: opacity .25s ease, transform .25s ease, font-size 1ms ease;
+      white-space: nowrap;
+    }
+  }
+  li a.active {
+    background-color: #29233E;
+    color: #fff;
+  }
+  li a:hover {
+    background-color: #29233E;
+    color: #fff;
+  }
+  &.collapsed ul {
+    li a {
+      padding: 8px;
+      gap: 0;
+    }
+    span {
+      opacity: 0;
+      transform: translateX(-10px);
+      pointer-events: none;
+      font-size: 0;
+    }
+  }
+}
+nav.collapsed {
+  width: 70px;
+}
+.panel-left {
+  width: 30px;
+  height: 30px;
+  border: 2px solid #9ca3af;
+  border-radius: 5px;
+  display: flex;
+  justify-content: end;
+  cursor: pointer;
+  margin: 0 0 33px 8px;
+}
+.panel-left-element {
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 2px solid #9ca3af;
+}
+.panel-left-icon {
+  color: #9ca3af;
+  transition: .3s ease-in-out;
+}
+.panel-left.close .panel-left-icon {
+  transform: rotate(180deg);
+}
+.panel-left.open .panel-left-icon {
+  transform: rotate(0deg);
+}
+@media (max-width: 800px) {
+  nav {
+    max-height: 100px;
+    min-height: 100px;
+    max-width: 100vw;
+    min-width: 100vw;
+    bottom: 0;
+    border-top: 1px solid #2e303a;
+    border-right: none;
+    &, ul {
+      display: flex;
+      flex-direction: row;
+    }
+    justify-content: center;
+    li a {
+      width: 100px;
+      flex-direction: column;
+      padding: 8px;
+    }
+    &.collapsed ul {
+      li a {
+        gap: .5rem;
+      }
+      span {
+        opacity: 1;
+        transform: translateX(0px);
+        font-size: 18px;
+      }
+    }
+  }
+  .panel-left {
+    display: none;
+  }
+}
+@media (max-width: 500px) {
+  nav {
+    max-height: 70px;
+    min-height: 70px;
+    li a {
+      width: max-content;
+      span {
+        display: none;
+      }
+    }
+  }
+}

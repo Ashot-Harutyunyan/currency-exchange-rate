@@ -1,0 +1,17 @@
+.container-logo {
+  width: 100%;
+  height: clamp(48px, 8vw, 68px);
+  border-bottom: 1px solid #2e303a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 12px;
+  h2 {
+    color: #9ca3af;
+  }
+  img {
+    width: clamp(48px, 8vw, 68px);
+    height: clamp(48px, 8vw, 68px);
+    object-fit: cover;
+  }
+}
